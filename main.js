@@ -69,7 +69,10 @@ const getWeather = (event) => {
     return;
   }
 
-  result.innerHTML = `<h3 class="msg">Loading...</h3>`;
+  result.innerHTML = `<div class="loader" role="status" aria-label="Loading weather">
+        <div class="loader-ring" aria-hidden="true"></div>
+        <p class="loader-text">Loading</p>
+      </div>`;
   searchBtn.disabled = true;
 
   if (currentRequest) {
