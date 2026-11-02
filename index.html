@@ -3,16 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App | Live City Weather &amp; Wind</title>
     <meta
       name="description"
-      content="Check live weather for any city, including temperature, wind, and current conditions."
+      content="Search any city for live weather: temperature, wind, rain, snow, and current sky conditions in a fast, mobile-friendly weather app."
     />
-    <meta name="theme-color" content="#000000" />
-    <title>Weather App</title>
+    <meta
+      name="keywords"
+      content="weather app, live weather, city forecast, temperature, wind, rain, snow, Omar Fattouh"
+    />
+    <meta name="author" content="Omar Mohamed Fattouh" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#05070d" />
     <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E☀️%3C/text%3E%3C/svg%3E"
+      rel="canonical"
+      href="https://omar-mohamed-fattouh.github.io/Weather-App/"
     />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Weather App" />
+    <meta property="og:title" content="Weather App | Live City Weather &amp; Wind" />
+    <meta
+      property="og:description"
+      content="Search any city for live temperature, wind, and sky conditions."
+    />
+    <meta
+      property="og:url"
+      content="https://omar-mohamed-fattouh.github.io/Weather-App/"
+    />
+    <meta
+      property="og:image"
+      content="https://omar-mohamed-fattouh.github.io/Weather-App/og-image.jpg"
+    />
+    <meta property="og:image:width" content="1376" />
+    <meta property="og:image:height" content="768" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Weather App | Live City Weather &amp; Wind" />
+    <meta
+      name="twitter:description"
+      content="Search any city for live temperature, wind, and sky conditions."
+    />
+    <meta
+      name="twitter:image"
+      content="https://omar-mohamed-fattouh.github.io/Weather-App/og-image.jpg"
+    />
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon.jpg" type="image/jpeg" />
+    <link rel="apple-touch-icon" href="favicon.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://api.openweathermap.org" />
@@ -21,10 +61,31 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=11" />
+    <link rel="stylesheet" href="style.css?v=12" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Weather App",
+        "url": "https://omar-mohamed-fattouh.github.io/Weather-App/",
+        "description": "Search any city for live weather: temperature, wind, rain, snow, and current sky conditions.",
+        "applicationCategory": "WeatherApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Omar Mohamed Fattouh"
+        }
+      }
+    </script>
   </head>
   <body>
     <main class="for-star">
+      <h1 class="sr-only">Weather App</h1>
       <div class="wrapper">
         <div class="shape shape-1" aria-hidden="true"></div>
         <div class="shape shape-2" aria-hidden="true"></div>
@@ -49,6 +110,6 @@
       </div>
     </main>
     <script src="key.js" defer></script>
-    <script src="main.js?v=11" defer></script>
+    <script src="main.js?v=12" defer></script>
   </body>
 </html>
