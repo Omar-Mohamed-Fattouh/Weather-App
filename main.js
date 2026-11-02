@@ -95,14 +95,14 @@ const getWeather = (event) => {
       const windSpeed = data.wind && data.wind.speed ? data.wind.speed : 0;
       const isWindy =
         windSpeed >= 8 || /wind/i.test(data.weather[0].description || "");
+      const description = data.weather[0].description || data.weather[0].main;
       const weatherLabel =
-        isWindy && data.weather[0].main !== "Squall"
-          ? `${data.weather[0].main} · Windy`
-          : data.weather[0].main;
+        isWindy && !/wind/i.test(description)
+          ? `${description} · Windy`
+          : description;
 
       result.innerHTML = `<h2>${escapeHtml(data.name)}</h2>
         <h4 class="weather">${escapeHtml(weatherLabel)}</h4>
-        <h4 class="desc">${escapeHtml(data.weather[0].description)}</h4>
         <div class="weather-icon" aria-hidden="true">${getWeatherIcon(data)}</div>
         <h1>${Math.round(data.main.temp)} &#176;</h1>
         <div class="temp-container">

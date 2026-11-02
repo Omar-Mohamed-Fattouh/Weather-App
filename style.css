@@ -44,12 +44,13 @@ body {
 .for-star {
     background-color: #000;
     background-image:
-        radial-gradient(1px 1px at 12px 18px, #fff, transparent),
-        radial-gradient(1px 1px at 72px 54px, rgba(255, 255, 255, 0.85), transparent),
-        radial-gradient(1.5px 1.5px at 132px 28px, #fff, transparent),
-        radial-gradient(1px 1px at 188px 96px, rgba(255, 255, 255, 0.7), transparent),
-        radial-gradient(1px 1px at 42px 140px, #fff, transparent);
-    background-size: 220px 180px;
+        url("https://www.transparenttextures.com/patterns/stardust.png"),
+        radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+        radial-gradient(1px 1px at 80px 120px, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(1.5px 1.5px at 160px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 220px 160px, rgba(255, 255, 255, 0.75), transparent),
+        radial-gradient(1px 1px at 40px 200px, #fff, transparent);
+    background-size: auto, 260px 220px, 260px 220px, 260px 220px, 260px 220px, 260px 220px;
     animation: stars 180s linear infinite;
     min-height: 100vh;
     min-height: 100dvh;
@@ -106,60 +107,77 @@ body {
 
 .container {
     width: 100%;
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(72px) saturate(180%);
-    -webkit-backdrop-filter: blur(72px) saturate(180%);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(2px) saturate(120%);
+    -webkit-backdrop-filter: blur(2px) saturate(120%);
     padding: clamp(1em, 3vw, 1.6em) clamp(0.9em, 3.2vw, 1.4em) clamp(0.9em, 2.8vw, 1.35em);
-    border: 1.5px solid var(--glass-border);
-    border-radius: 0.8em;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 1em;
     box-shadow:
-        0 1.8em 3.7em var(--shadow),
-        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+        0 18px 50px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.65),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1);
     text-align: center;
     position: relative;
     z-index: 2;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        115deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 36%
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container > * {
+    position: relative;
+    z-index: 1;
 }
 
 .shape {
     position: absolute;
-    background:
-        radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.08) 46%, rgba(255, 255, 255, 0.03) 72%);
-    backdrop-filter: blur(48px) saturate(180%);
-    -webkit-backdrop-filter: blur(48px) saturate(180%);
-    border: 1.5px solid rgba(255, 255, 255, 0.32);
-    border-radius: 50%;
-    box-shadow:
-        inset 10px 10px 22px rgba(255, 255, 255, 0.2),
-        inset -12px -16px 28px rgba(0, 0, 0, 0.28),
-        0 12px 34px rgba(0, 0, 0, 0.28);
+    background: radial-gradient(circle, #fff 0 18%, rgba(210, 230, 255, 0.95) 32%, rgba(255, 255, 255, 0.55) 48%, transparent 72%);
+    clip-path: polygon(50% 0%, 58% 42%, 100% 50%, 58% 58%, 50% 100%, 42% 58%, 0% 50%, 42% 42%);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 22px rgba(170, 210, 255, 0.7));
     z-index: 1;
     pointer-events: none;
 }
 
 .shape-1 {
-    height: 13em;
-    width: 13em;
-    right: -8.5em;
-    top: 1.8em;
-    animation: float-glass 8s ease-in-out infinite;
+    height: 7.5em;
+    width: 7.5em;
+    right: -3.4em;
+    top: 0.6em;
+    animation: twinkle 5.5s ease-in-out infinite;
 }
 
 .shape-2 {
-    height: 11em;
-    width: 11em;
-    bottom: 0.5em;
-    left: -4.5em;
-    animation: float-glass 10s ease-in-out infinite reverse;
+    height: 5.6em;
+    width: 5.6em;
+    bottom: 0.2em;
+    left: -2.4em;
+    animation: twinkle 7s ease-in-out infinite reverse;
 }
 
-@keyframes float-glass {
+@keyframes twinkle {
     0%,
     100% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 0.8;
     }
 
     50% {
-        transform: translateY(-12px);
+        transform: translateY(-10px) rotate(18deg) scale(1.08);
+        opacity: 1;
     }
 }
 
@@ -221,6 +239,7 @@ body {
     letter-spacing: 0.18em;
     font-weight: 600;
     margin: 0.7em 0 0.15em;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
 }
 
 .weather,
@@ -231,6 +250,7 @@ body {
     font-size: 0.85em;
     font-weight: 500;
     line-height: 1.35;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
 .weather {
@@ -250,6 +270,7 @@ body {
     line-height: 1.1;
     font-weight: 400;
     color: var(--white);
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
 }
 
 .temp-container {
@@ -269,11 +290,13 @@ body {
 .temp-container .title {
     font-weight: 600;
     color: var(--white);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
 .temp-container .temp {
     font-weight: 300;
     color: var(--off-white);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
 .msg {
@@ -326,17 +349,17 @@ body {
     }
 
     .shape-1 {
-        height: 9em;
-        width: 9em;
-        right: -4.8em;
-        top: 1em;
+        height: 5.5em;
+        width: 5.5em;
+        right: -2.4em;
+        top: 0.4em;
     }
 
     .shape-2 {
-        height: 7.5em;
-        width: 7.5em;
-        bottom: 0.4em;
-        left: -3.2em;
+        height: 4.4em;
+        width: 4.4em;
+        bottom: 0.2em;
+        left: -1.8em;
     }
 
     .search-container {
